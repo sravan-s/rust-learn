@@ -1,9 +1,8 @@
 mod insertion_sort;
 
 fn main() {
-  let mut arr: [i8; 4] = [12, 20, 33, 44];
-  let len = arr.len();
+  let mut arr: [i8; 4] = [1, 2, 3, 4];
   println!("{:?}", arr);
   insertion_sort::welcome();
-  insertion_sort::sort(&arr);
+  insertion_sort::sort(&mut arr);
 }

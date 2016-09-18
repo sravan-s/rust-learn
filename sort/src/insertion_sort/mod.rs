@@ -1,4 +1,4 @@
-pub fn sort(array_to_sort: &mut [i8; 4]) {
+pub fn sort(array_to_sort: &mut [i8]) {
   println!("{:?}", array_to_sort);
 }
 
