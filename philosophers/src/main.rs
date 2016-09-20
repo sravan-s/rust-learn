@@ -1,3 +1,6 @@
+use std::thread;
+use std::time;
+
 struct Philosopher {
   name: String
 }
@@ -13,6 +16,8 @@ impl Philosopher {
   }
 
   fn eat(&self) {
+    println!("{} has started eating", self.name);
+    thread::sleep(time::Duration::from_millis(1000));
     println!("{} has finished eating", self.name);
   }
 }
@@ -26,7 +31,13 @@ fn main() {
     Philosopher::new("Michel Foucault")
   ];
 
-  for p in philosophers {
-    p.eat();
+  let handles: Vec<_> = philosophers.into_iter().map(|p| {
+    thread::spawn(move || {
+      p.eat();
+    })
+  }).collect();
+
+  for h in handles {
+    h.join().unwrap();
   }
 }
