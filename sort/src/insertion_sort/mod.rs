@@ -1,7 +1,3 @@
-pub fn welcome() {
-  println!("Welcome to insertion sort");
-}
-
 // Inspired from
 // http://stackoverflow.com/questions/30965257/why-is-my-rust-implementation-of-insertionsort-slower-than-my-c-version
 
@@ -23,3 +19,17 @@ pub fn sort(array: &mut [i8]) {
     }
   }
 }
+
+/*
+pub fn sort_rec(array: &mut [i8], index: i8) {
+  let mut temp: i8;
+  temp = array[index];
+  for i in (0..index).rev() {
+    if array[i] < temp {
+      array[i + 1] = array[i];
+      sort_rec(array, i);
+      break;
+    }
+  }
+}
+*/
